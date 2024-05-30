@@ -3,19 +3,19 @@ import { Image } from 'astro:assets';
 import ContextAlert from '../components/ContextAlert.astro';
 import Layout from '../layouts/Layout.astro';
 import Markdown from '../components/Markdown.astro';
-import corgi from '../assets/corgi.jpg';
+import corgi from '../assets/796435.jpg';
 import { getNetlifyContext } from '../utils';
 
-const sampleImage = '/images/corgi.jpg';
+const sampleImage = '/images/796435.jpg';
 
 const ctx = getNetlifyContext();
 const forceWebP = ctx === 'dev';
-const sampleImageSrcSet = [640, 1280, 2048]
+const sampleImageSrcSet = [120, 320, 640, 800, 1280, 2048]
     .map((size) => {
         return `/.netlify/images?url=${sampleImage}&w=${size}${forceWebP ? '&fm=webp' : ''} ${size}w`;
     })
     .join(', ');
-const sizes = '(max-width: 1024px) 100vw, 1024px';
+const sizes = '(max-width: 2048px) 90vw, 2048px';
 
 const astroImageSnippet = `
 ## Using the built-in Astro &lt;Image /&gt; component
@@ -25,7 +25,7 @@ Astro's \`Image\` component will automatically use Netlify Image CDN to serve op
 ~~~jsx
 ---
 import { Image } from 'astro:assets';
-import corgi from '../assets/corgi.jpg';
+import corgi from '../assets/796435.jpg';
 ---
 // Later in your markup...
 <Image src={corgi} alt="Corgi" /* ... additional props */ />
@@ -40,7 +40,7 @@ Note that aside from Astro's \`Image\` or rolling your own \`<img>\` tags, you c
 
 ~~~jsx
 // <== On the left, the original image
-<img src="/images/corgi.jpg" alt="Corgi" />
+<img src="/images/796435.jpg" alt="Corgi" />
 
 // ==> On the right, explicitly using Netlify Image CDN endpoint for a responsive image
 <img 
