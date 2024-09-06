@@ -14,7 +14,7 @@ export default defineConfig({
     output: 'hybrid',
     adapter: netlify({
         image: {
-          domains: ['res.cloudinary.com', 'paulapplegate.com'],
+          domains: ['res.cloudinary.com', 'paulapplegate.com']
         },
         cacheOnDemandPages: true,
         edgeMiddleware: true,
